@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { Search, Star, Tv, Library, BookmarkPlus, Check, Loader2, ChevronLeft, ChevronRight, TrendingUp, X, Calendar, BarChart3, Play, ExternalLink, Filter } from 'lucide-react';
+import { Search, Star, Tv, Library, BookmarkPlus, Check, Loader2, ChevronLeft, ChevronRight, TrendingUp, X, BarChart3, Play, ExternalLink, Filter } from 'lucide-react';
 import { useAppState } from '../AppStateContext';
 import API_BASE from '../apiBase';
 

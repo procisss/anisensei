@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Home, Sparkles, BookOpen, List, MessageSquare } from 'lucide-react';
 import { AppStateProvider } from './AppStateContext';

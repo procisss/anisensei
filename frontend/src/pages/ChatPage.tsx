@@ -131,7 +131,7 @@ export const ChatPage = () => {
           onKeyDown={(e) => e.key === 'Enter' && handleSend()}
         />
         <button
-          onClick={handleSend}
+          onClick={() => handleSend()}
           disabled={loading || !input.trim()}
           className="bg-anime-primary hover:bg-anime-secondary transition-colors text-white p-3 rounded-lg disabled:opacity-50"
         >
