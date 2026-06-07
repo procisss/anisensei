@@ -59,7 +59,7 @@ export const RecommendPage = () => {
           className="glass-input flex-1"
           onKeyDown={(e) => e.key === 'Enter' && handleRecommend()}
         />
-        <button onClick={handleRecommend} disabled={loading} className="glass-button flex items-center gap-2">
+        <button onClick={() => handleRecommend()} disabled={loading} className="glass-button flex items-center gap-2">
           {loading ? <Loader2 className="animate-spin" /> : <Send size={20} />}
           <span>Ask Sensei</span>
         </button>

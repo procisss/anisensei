@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Sparkles, BookOpen, List, MessageSquare, Dices, Tv, Star, Bot, Play, X, Calendar, BarChart3, ExternalLink, BookmarkPlus, Check, Loader2 } from 'lucide-react';
+import { Sparkles, BookOpen, List, MessageSquare, Dices, Tv, Star, Bot, Play, X, BarChart3, ExternalLink, BookmarkPlus, Check, Loader2 } from 'lucide-react';
 import { useAppState } from '../AppStateContext';
 import API_BASE from '../apiBase';
 
@@ -229,7 +229,7 @@ export const HomePage = () => {
                 className="flex gap-5 w-full cursor-pointer hover:bg-slate-800/50 p-3 rounded-xl transition-colors border border-transparent hover:border-anime-primary/30"
                 onClick={() => setSelectedAnime(hs.randomAnime)}
               >
-                <img src={hs.randomAnime.images.jpg.image_url} alt={hs.randomAnime.title} className="w-32 h-48 object-cover rounded-xl shadow-lg border border-slate-700/50" />
+                <img src={hs.randomAnime.images.jpg.large_image_url || (hs.randomAnime.images.jpg as any).image_url} alt={hs.randomAnime.title} className="w-32 h-48 object-cover rounded-xl shadow-lg border border-slate-700/50" />
                 <div className="flex-1 flex flex-col justify-center">
                   <h3 className="text-lg font-bold text-white line-clamp-2 mb-1 group-hover:text-anime-primary transition-colors">{hs.randomAnime.title}</h3>
                   <div className="flex flex-wrap gap-2 mb-3">
@@ -324,7 +324,7 @@ export const HomePage = () => {
       <div className="mb-10">
         <h2 className="text-2xl font-bold text-slate-200 mb-6 text-center">Everything you need in one place</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {features.map(({ icon: Icon, title, description, to, gradient, border, bg }) => (
+          {features.map(({ icon: Icon, title, description, to, gradient, border }) => (
             <Link
               key={to}
               to={to}

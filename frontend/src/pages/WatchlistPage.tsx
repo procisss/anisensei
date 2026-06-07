@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BookmarkCheck, Trash2, Tv, Star, Eye, Clock, CheckCircle2, Loader2, ListX, Play, ExternalLink, X, BookmarkPlus, Check, BarChart3 } from 'lucide-react';
-import { useAppState } from '../AppStateContext';
+import { BookmarkCheck, Trash2, Tv, Star, Eye, Clock, CheckCircle2, Loader2, ListX, Play, ExternalLink, X, Check, BarChart3 } from 'lucide-react';
 import API_BASE from '../apiBase';
 
 interface WatchlistAnime {
@@ -34,7 +33,6 @@ export const WatchlistPage = () => {
   const [selectedAnime, setSelectedAnime] = useState<any | null>(null);
   const [selectedAnimeEpisodes, setSelectedAnimeEpisodes] = useState<any[]>([]);
   const [loadingAnimeId, setLoadingAnimeId] = useState<string | null>(null);
-  const [addingId, setAddingId] = useState<number | null>(null);
 
   const handleAnimeClick = async (watchlistId: string, title: string) => {
     setLoadingAnimeId(watchlistId);
@@ -181,7 +179,6 @@ export const WatchlistPage = () => {
         <div className="space-y-3 pb-8">
           {filtered.map((item) => {
             const statusConf = STATUS_CONFIG[item.status] || STATUS_CONFIG.plan_to_watch;
-            const StatusIcon = statusConf.icon;
 
             return (
               <div 
@@ -354,7 +351,7 @@ export const WatchlistPage = () => {
                           <div key={ep.mal_id} className="bg-slate-800/40 border border-slate-700/50 rounded-xl p-3 flex flex-col gap-2 hover:bg-slate-800/60 transition-colors">
                             <div className="flex justify-between items-start">
                               <span className="text-slate-300 font-bold text-sm">Episode {ep.mal_id}</span>
-                              {isBookmarked && <BookmarkCheck size={16} className="text-anime-primary" title="Bookmarked" />}
+                              {isBookmarked && <BookmarkCheck size={16} className="text-anime-primary" />}
                             </div>
                             <span className="text-slate-400 text-xs truncate" title={ep.title}>{ep.title}</span>
                             <div className="flex gap-2 mt-2 pt-2 border-t border-slate-700/50">
