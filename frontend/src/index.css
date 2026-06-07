@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --color-anime-primary: #8b5cf6;
+  --color-anime-secondary: #ec4899;
+  --color-anime-dark: #0f172a;
+  --color-anime-card: rgba(30, 41, 59, 0.4);
+}
+
+@layer base {
+  body {
+    @apply bg-anime-dark text-slate-200 font-sans antialiased selection:bg-anime-primary selection:text-white;
+    background-image: 
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.3)),
+      url('/bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-anime-card backdrop-blur-md border border-slate-700/50 rounded-2xl shadow-xl;
+  }
+  
+  .glass-button {
+    @apply relative overflow-hidden bg-gradient-to-r from-anime-primary to-anime-secondary text-white font-medium px-6 py-2 rounded-lg shadow-lg hover:shadow-anime-primary/25 transition-all duration-300 hover:-translate-y-1 active:translate-y-0;
+  }
+  
+  .glass-input {
+    @apply w-full bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-anime-primary focus:border-transparent transition-all duration-300 placeholder-slate-400;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-anime-primary to-anime-secondary;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+@keyframes slide-panel {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-slide-panel {
+  animation: slide-panel 0.25s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
