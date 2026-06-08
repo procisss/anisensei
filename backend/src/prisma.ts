@@ -15,4 +15,4 @@ try {
   console.warn("Failed to initialize PrismaLibSql:", e);
 }
 
-export const prisma = new PrismaClient(adapter ? { adapter, log: ['error', 'warn'] } : { log: ['error', 'warn'] });
+export const prisma = new PrismaClient((adapter ? { adapter, log: ['error', 'warn'] } : { log: ['error', 'warn'] }) as any);
