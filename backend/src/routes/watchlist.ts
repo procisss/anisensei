@@ -3,11 +3,21 @@ import { prisma } from '../prisma';
 
 const router = Router();
 
+// Helper: find or auto-create a default user
+async function getOrCreateUser() {
+  let user = await prisma.user.findFirst();
+  if (!user) {
+    user = await prisma.user.create({
+      data: { username: 'default', email: 'user@anisensei.app' }
+    });
+  }
+  return user;
+}
+
 // GET /api/watchlist - Get all watchlist items for the default user
 router.get('/', async (req, res) => {
   try {
-    const user = await prisma.user.findFirst();
-    if (!user) return res.json([]);
+    const user = await getOrCreateUser();
 
     const watchlist = await prisma.watchlist.findMany({
       where: { userId: user.id },
@@ -24,8 +34,7 @@ router.get('/', async (req, res) => {
 // Body: { malId, title, genre, description, rating, episodes, imageUrl, status? }
 router.post('/', async (req, res) => {
   try {
-    const user = await prisma.user.findFirst();
-    if (!user) return res.status(400).json({ error: 'No user found. Run seed script first.' });
+    const user = await getOrCreateUser();
 
     const { animeId, malId, title, genre, description, rating, episodes, imageUrl, status } = req.body;
 
