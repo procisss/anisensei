@@ -44,9 +44,9 @@ const features = [
 ];
 
 const chatTeasers = [
-  { name: 'Gojo Satoru', anime: 'Jujutsu Kaisen', quote: '"Ask me anything about jujutsu techniques..."', avatar: 'images/gojosatoru.webp' },
-  { name: 'Levi Ackerman', anime: 'Attack on Titan', quote: '"Tch. Need tactical advice? Make it quick."', avatar: 'images/levi-ackerman.gif' },
-  { name: 'Makima', anime: 'Chainsaw Man', quote: '"Would you like to be my dog?"', avatar: 'images/makima-5.avif' },
+  { name: 'Gojo Satoru', anime: 'Jujutsu Kaisen', quote: '"Ask me anything about jujutsu techniques..."', avatar: 'https://static.wikia.nocookie.net/jujutsu-kaisen/images/5/5a/Satoru_Gojo_arrives_on_the_battlefield_%28Anime%29.png/revision/latest?cb=20210226205256' },
+  { name: 'Levi Ackerman', anime: 'Attack on Titan', quote: '"Tch. Need tactical advice? Make it quick."', avatar: 'https://media.tenor.com/-F1llo2Z2CIAAAAe/levi-ackerman.png' },
+  { name: 'Makima', anime: 'Chainsaw Man', quote: '"Would you like to be my dog?"', avatar: 'https://a.storyblok.com/f/178900/640x360/f1620ef628/217283111bdc353ed6846e215f1b3ea21669148862_main.jpg/m/filters:quality(95)format(webp)' },
   { name: 'Luffy', anime: 'One Piece', quote: '"I\'m gonna be the King of the Pirates!"', avatar: 'https://cdn.myanimelist.net/images/characters/9/310307.jpg' },
 ];
 
